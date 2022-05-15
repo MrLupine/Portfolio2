@@ -1,0 +1,193 @@
+$base-font-size: 40px;
+$phone:   320px;
+$phonexl: 480px;
+$tablet:  600px;
+$large:   1200px;
+$xlarge:  1600px;
+
+html, body {
+  overscroll-behavior: none;
+  height: 100%
+}
+
+img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+body {
+  color: white;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  margin: 0;
+  padding: max(9vw, 35px);
+  box-sizing: border-box;
+
+  @media screen and (min-width: $phonexl){
+    padding: max(8vw, 43px);
+  }
+
+  @media screen and (min-width: $tablet){
+    padding: clamp(48px, 6vw, 56px);
+  }
+
+  @media screen and (min-width: $large){
+    padding: max(4.5vw, 56px);
+  }
+
+  @media screen and (min-width: $xlarge){
+    padding: max(2vw, 72px);
+  }
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: lightgrey;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.logo-block {
+  position: fixed;
+  width: max(24vw, 82px);
+  z-index: 100;
+
+  @media screen and (min-width: $tablet){
+    width: clamp(143.76px, 18vw, 152px);
+  }
+
+  @media screen and (min-width: $large){
+    width: max(11.5vw, 152px);
+  }
+
+  @media screen and (min-width: $xlarge){
+    width: max(10vw, 184px);
+  }
+}
+
+#logo {
+  fill: white;
+}
+
+.text {
+  font-size: max(8vw, 28px);
+  line-height: max(9.5vw, 34px);
+  padding: max(3.6vw, 12px) 0 0;
+  position: relative;
+  text-indent: max(28vw, 96px);
+  z-index: 100;
+
+  @media screen and (orientation: landscape) {
+    font-size: max(8vw, 28px);
+    line-height: max(9.5vw, 34px);
+    padding: max(3.6vw, 12px) 0 0;
+    text-indent: max(28vw, 96px);
+  }
+
+  @media screen and (min-width: $tablet){
+    font-size: clamp(47.92px, 6vw, 50px);
+    line-height: clamp(56.905px, 7.5vw, 66px);
+    padding: 21px 0 0;
+    text-indent: clamp(167.72px, 21vw, 180px);
+  }
+
+  @media screen and (min-width: $large){
+    font-size: max(3.6vw, 50px);
+    line-height: max(5vw, 66px);
+    padding: max(1.5vw, 21px) 0 0;
+    text-indent: max(13.5vw, 180px);
+    /* width: 95%;*/
+  }
+
+  @media screen and (min-width: $xlarge){
+    font-size: max(3vw, 57.564px);
+    line-height: max(4.5vw, 79.95px);
+    padding: max(1vw, 23.985px) 0 0;
+    text-indent: max(12vw, 216px);
+  }
+}
+
+.bold {
+  font-family: "BlockPro-Bold", sans-serif;
+  padding: 0 10px;
+}
+
+.projects {
+  font-size: max(5.5vw, 22px);
+  line-height: max(7.5vw, 31px);
+  position: relative;
+  text-align: right;
+  z-index: 100;
+
+  @media screen and (min-width: $tablet){
+    font-size: max(3.85vw, 32.945px);
+    line-height: max(4vw, 44.925px);
+  }
+
+  @media screen and (min-width: $large){
+    font-size: max(3.15vw, 46.1615px);
+    line-height: max(3vw, 47.96px);
+  }
+
+  @media screen and (min-width: $xlarge){
+    font-size: max(2.5vw, 50.3685px);
+    line-height: max(2.75vw, 47.97px);
+  }
+}
+
+.modal {
+  background-color: black;
+  height: 102%;
+  left: -1%;
+  position: fixed;
+  top: -1%;
+  transition: background-color, 0.5s;
+  width: 102%;
+  z-index: 10;
+}
+
+.image-gallery {
+  height: 100vh;
+  left: 0vw;
+  position: fixed;
+  top: 0vh;
+  transform: translate(-100vw, 0);
+  transition: transform 1s cubic-bezier(0.59, 0, 0.26, 1);
+  width: 600vw;
+}
+
+.images {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.display-none {
+  display: none;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.left {
+  left: -100vw;
+}
+
+.right {
+  right: 100vw;
+}
