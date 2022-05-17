@@ -11,11 +11,17 @@ img {
 
 body {
   color: white;
-  font-family: "EB Garamond", serif;
+  font-family: "EB Garamond", Garamond, serif;
   font-weight: 400;
   margin: 0;
   padding: max(9vw, 35px);
   box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 @media screen and (min-width: 480px) {
   body {
@@ -25,6 +31,11 @@ body {
 @media screen and (min-width: 600px) {
   body {
     padding: clamp(48px, 6vw, 56px);
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 999px) and (orientation: landscape) {
+  body {
+    padding: max(4vw, 28px);
   }
 }
 @media screen and (min-width: 1200px) {
@@ -44,12 +55,18 @@ p {
 
 a {
   color: white;
+  cursor: pointer;
+  pointer-events: auto;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: 600;
 }
 
-a:hover {
-  color: lightgrey;
+@media (hover: hover) and (pointer: fine) {
+  a:hover, .checkbox-text:hover, .projects_text:hover {
+    color: lightgrey;
+  }
 }
-
 .main-page {
   display: flex;
   flex-direction: column;
@@ -65,6 +82,16 @@ a:hover {
 @media screen and (min-width: 600px) {
   .logo-block {
     width: clamp(143.76px, 18vw, 152px);
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 799px) and (orientation: landscape) {
+  .logo-block {
+    width: max(15vw, 42px);
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 999px) and (orientation: landscape) {
+  .logo-block {
+    width: max(13vw, 42px);
   }
 }
 @media screen and (min-width: 1200px) {
@@ -84,33 +111,42 @@ a:hover {
 
 .text {
   font-size: max(8vw, 28px);
-  line-height: max(9.5vw, 34px);
+  line-height: max(9.5vw, 30px);
   padding: max(3.6vw, 12px) 0 0;
   position: relative;
+  pointer-events: none;
   text-indent: max(28vw, 96px);
   z-index: 100;
-}
-@media screen and (orientation: landscape) {
-  .text {
-    font-size: max(8vw, 28px);
-    line-height: max(9.5vw, 34px);
-    padding: max(3.6vw, 12px) 0 0;
-    text-indent: max(28vw, 96px);
-  }
 }
 @media screen and (min-width: 600px) {
   .text {
     font-size: clamp(47.92px, 6vw, 50px);
-    line-height: clamp(56.905px, 7.5vw, 66px);
-    padding: 21px 0 0;
+    line-height: clamp(56.905px, 7.5vw, 63px);
+    padding: 22px 0 0;
     text-indent: clamp(167.72px, 21vw, 180px);
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 799px) and (orientation: landscape) {
+  .text {
+    font-size: max(4.5vw, 25px);
+    line-height: max(5.6vw, 20px);
+    padding: 2.5vw 0 0;
+    text-indent: max(17.25vw, 100px);
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 999px) and (orientation: landscape) {
+  .text {
+    font-size: max(3.75vw, 25px);
+    line-height: max(4.75vw, 20px);
+    padding: 20px 0 0;
+    text-indent: max(15.25vw, 100px);
   }
 }
 @media screen and (min-width: 1200px) {
   .text {
     font-size: max(3.6vw, 50px);
-    line-height: max(5vw, 66px);
-    padding: max(1.5vw, 21px) 0 0;
+    line-height: max(5vw, 63px);
+    padding: max(1.5vw, 22px) 0 0;
     text-indent: max(13.5vw, 180px);
     /* width: 95%;*/
   }
@@ -124,35 +160,74 @@ a:hover {
   }
 }
 
-.bold {
-  font-family: "BlockPro-Bold", sans-serif;
-  padding: 0 10px;
+.checkbox {
+  display: none;
+}
+
+.checkbox-text {
+  font-family: "EB Garamond", Garamond, serif;
+  pointer-events: auto;
+  cursor: pointer;
+  font-style: italic;
+  font-variation-settings: "wght" 600;
+  transition: font-variation-settings 0.5s;
+}
+
+.checkbox:checked + label {
+  font-variation-settings: "wght" 800;
+  color: orange;
 }
 
 .projects {
   font-size: max(5.5vw, 22px);
-  line-height: max(7.5vw, 31px);
+  line-height: max(7.5vw, 27px);
+  orphans: 3;
   position: relative;
   text-align: right;
   z-index: 100;
 }
 @media screen and (min-width: 600px) {
   .projects {
-    font-size: max(3.85vw, 32.945px);
-    line-height: max(4vw, 44.925px);
+    font-size: max(3.45vw, 32.945px);
+    line-height: max(5vw, 44.925px);
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 799px) and (orientation: landscape) {
+  .projects {
+    font-size: max(3vw, 22px);
+    line-height: max(4vw, 32px);
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 999px) and (orientation: landscape) {
+  .projects {
+    font-size: max(2.75vw, 22px);
+    line-height: max(3.75vw, 35px);
   }
 }
 @media screen and (min-width: 1200px) {
   .projects {
-    font-size: max(3.15vw, 46.1615px);
-    line-height: max(3vw, 47.96px);
+    font-size: max(2.8vw, 41.3655px);
+    line-height: max(4.1vw, 59.95px);
   }
 }
 @media screen and (min-width: 1600px) {
   .projects {
-    font-size: max(2.5vw, 50.3685px);
-    line-height: max(2.75vw, 47.97px);
+    font-size: max(2.6vw, 44.772px);
+    line-height: max(2.75vw, 65.559px);
   }
+}
+
+.projects_group {
+  display: inline-block;
+}
+
+.projects_text {
+  font-style: italic;
+  cursor: pointer;
+}
+
+.bar {
+  padding: 0 5px;
 }
 
 .modal {
