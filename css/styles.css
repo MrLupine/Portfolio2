@@ -1,6 +1,15 @@
 html, body {
   overscroll-behavior: none;
   height: 100%;
+  overflow: hidden;
+}
+
+.cursor-left {
+  cursor: url("images/Manicules-left-small.png"), crosshair;
+}
+
+.cursor-right {
+  cursor: url("images/Manicules-right-small.png"), crosshair;
 }
 
 img {
@@ -77,7 +86,8 @@ a {
 .logo-block {
   position: fixed;
   width: max(24vw, 82px);
-  z-index: 100;
+  z-index: 1000;
+  filter: drop-shadow(0px 0px 10px #4a4a4a);
 }
 @media screen and (min-width: 600px) {
   .logo-block {
@@ -109,6 +119,14 @@ a {
   fill: white;
 }
 
+.logo-hover {
+  cursor: pointer;
+}
+
+.logo-hover:hover {
+  fill: lightgrey;
+}
+
 .text {
   font-size: max(8vw, 28px);
   line-height: max(9.5vw, 30px);
@@ -116,6 +134,7 @@ a {
   position: relative;
   pointer-events: none;
   text-indent: max(28vw, 96px);
+  transition: transform 0.4s, opacity 0.4s;
   z-index: 100;
 }
 @media screen and (min-width: 600px) {
@@ -175,7 +194,7 @@ a {
 
 .checkbox:checked + label {
   font-variation-settings: "wght" 800;
-  color: orange;
+  color: #E64F00;
 }
 
 .projects {
@@ -184,6 +203,7 @@ a {
   orphans: 3;
   position: relative;
   text-align: right;
+  transition: transform 0.4s, opacity 0.4s;
   z-index: 100;
 }
 @media screen and (min-width: 600px) {
@@ -219,11 +239,16 @@ a {
 
 .projects_group {
   display: inline-block;
+  transition: opacity 2s;
 }
 
 .projects_text {
   font-style: italic;
   cursor: pointer;
+}
+
+.projects_text:hover {
+  color: lightgrey;
 }
 
 .bar {
@@ -236,7 +261,7 @@ a {
   left: -1%;
   position: fixed;
   top: -1%;
-  transition: background-color, 0.5s;
+  transition: background-color, 0.4s;
   width: 102%;
   z-index: 10;
 }
@@ -247,14 +272,27 @@ a {
   position: fixed;
   top: 0vh;
   transform: translate(-100vw, 0);
-  transition: transform 1s cubic-bezier(0.59, 0, 0.26, 1);
-  width: 600vw;
+  transition: transform 1s cubic-bezier(0.6, 0, 0.25, 1);
+  overflow: hidden;
 }
 
-.images {
+.image-gallery_images {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+
+.transform-z {
+  opacity: 0;
+  transform: perspective(100px) translateZ(120px);
+  pointer-events: none;
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
 
 .display-none {
@@ -263,15 +301,7 @@ a {
 
 .hidden {
   opacity: 0;
-  transition: opacity 1s;
-}
-
-.left {
-  left: -100vw;
-}
-
-.right {
-  right: 100vw;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
